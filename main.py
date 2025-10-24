@@ -1,6 +1,6 @@
 import flet as ft
 import ipaddress
-
+import os
 
 def main(pagina: ft.Page):
     pagina.title = "Calculadora de Sub-rede IP"
@@ -149,5 +149,5 @@ def main(pagina: ft.Page):
         lista_subredes,
     )
 
-
-ft.app(target=main, view=ft.WEB_BROWSER)
+port = int(os.environ.get("PORT", 10000))
+ft.app(target=main, view=ft.WEB_BROWSER, port=port, host="0.0.0.0")
